@@ -1,0 +1,76 @@
+/* Apply border-box box-sizing to all elements */
+* {
+  box-sizing: border-box;
+}
+
+/* Styles for the body */
+body {
+  background-color: #2c3e50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Styles for the kinetic element */
+.kinetic {
+  position: relative;
+  height: 80px;
+  width: 80px;
+}
+
+/* Styles for the pseudo-elements of the kinetic element */
+.kinetic::after,
+.kinetic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border: 50px solid transparent;
+  border-bottom-color: #fff;
+  animation: rotateA 2s linear infinite 0.5s; /* Apply the rotateA animation */
+}
+
+/* Additional styles for the second pseudo-element of the kinetic element */
+.kinetic::before {
+  transform: rotate(90deg);
+  animation: rotateB 2s linear infinite; /* Apply the rotateB animation */
+}
+
+/* Keyframes animation for rotateA */
+@keyframes rotateA {
+  0%,
+  25% {
+    transform: rotate(0deg);
+  }
+
+  50%,
+  75% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Keyframes animation for rotateB */
+@keyframes rotateB {
+  0%,
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50%,
+  75% {
+    transform: rotate(270deg);
+  }
+
+  100% {
+    transform: rotate(450deg);
+  }
+}
